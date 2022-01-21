@@ -55,9 +55,9 @@ const max = Math.max(card1, card2, card3);
     const state = "WA";
     const zipCode = "98029";
 
-    let address = `${firstName} ${lastName} 
-    ${streetAddress} 
-    ${city}, ${state} ${zipCode}`;
+    console.log(`${firstName} ${lastName} \n`+
+    `${streetAddress} \n `+ 
+    `${city}, ${state} ${zipCode}`);
 
 // 2. You are given a string in this format:
 // firstName lastName(assume no spaces in either)
