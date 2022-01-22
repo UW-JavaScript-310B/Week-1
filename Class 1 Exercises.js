@@ -15,13 +15,10 @@ const pizzaCost17 = 19.99;
 const pizzaArea13 = (Math.PI * Math.pow(pizzaDiameter13 / 2, 2)).toFixed(2);
 const pizzaArea17 = (Math.PI * Math.pow(pizzaDiameter17 / 2, 2)).toFixed(2);
 
-console.log(`The area of the ${pizzaDiameter13} inch pizza is ${pizzaArea13} square inches.`);
-console.log(`The area of the ${pizzaDiameter17} inch pizza is ${pizzaArea17} square inches.`);
-
 // 2. What is the cost per square inch of each pizza?
 
-console.log(`The cost per square inch for the ${pizzaDiameter13} inch pizza is approximately $${Math.round(100 * pizzaCost13 / pizzaArea13) / 100}.`);
-console.log(`The cost per square inch for the ${pizzaDiameter17} inch pizza is approximately $${Math.round(100 * pizzaCost17 / pizzaArea17) / 100}.`);
+const costPerSqInch13 = Math.round(100 * pizzaCost13 / pizzaArea13) / 100;
+const costPerSqInch17 = Math.round(100 * pizzaCost17 / pizzaArea17) / 100;
 
 // 3. Using the Math object, put together a code snippet
 // that allows you to draw a random card with a value
@@ -54,7 +51,7 @@ const city = `Milan`;
 const state = `MI`;
 const zip = 48160;
 
-let address = `${firstName} ${lastName}\n${streetAddress}\n${city}, ${state}  ${zip}`;
+const address = `${firstName} ${lastName}\n${streetAddress}\n${city}, ${state}  ${zip}`;
 
 // 2. You are given a string in this format:
 // firstName lastName(assume no spaces in either)
@@ -64,8 +61,8 @@ let address = `${firstName} ${lastName}\n${streetAddress}\n${city}, ${state}  ${
 // Write code that is able to extract the first name from this string into a variable.
 // Hint: use indexOf, slice, and / or substring
 
-let firstSpace = address.indexOf(' ');
-let filteredFirstName = address.slice(0, firstSpace);
+const firstSpace = address.indexOf(' ');
+const filteredFirstName = address.slice(0, firstSpace);
 
 /**
  * FIND THE MIDDLE DATE
