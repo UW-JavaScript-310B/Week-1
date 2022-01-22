@@ -6,18 +6,37 @@
 // What is the area for each of these pizzas?
 // (radius would be the listed size - i.e. 13" - divided by 2)
 
+const pizzaDiameter13 = 13;
+const pizzaDiameter17 = 17;
+
+const pizzaCost13 = 16.99;
+const pizzaCost17 = 19.99;
+
+const pizzaArea13 = (Math.PI * Math.pow(pizzaDiameter13 / 2, 2)).toFixed(2);
+const pizzaArea17 = (Math.PI * Math.pow(pizzaDiameter17 / 2, 2)).toFixed(2);
+
+console.log(`The area of the ${pizzaDiameter13} inch pizza is ${pizzaArea13} square inches.`);
+console.log(`The area of the ${pizzaDiameter17} inch pizza is ${pizzaArea17} square inches.`);
 
 // 2. What is the cost per square inch of each pizza?
 
+console.log(`The cost per square inch for the ${pizzaDiameter13} inch pizza is approximately $${Math.round(100 * pizzaCost13 / pizzaArea13) / 100}.`);
+console.log(`The cost per square inch for the ${pizzaDiameter17} inch pizza is approximately $${Math.round(100 * pizzaCost17 / pizzaArea17) / 100}.`);
 
 // 3. Using the Math object, put together a code snippet
 // that allows you to draw a random card with a value
 // between 1 and 13 (assume ace is 1, jack is 11…)
 
+const card = Math.floor(Math.random() * 13 + 1);
 
 // 4. Draw 3 cards and use Math to determine the highest
 // card
 
+const card1 = Math.floor(Math.random() * 13 + 1);
+const card2 = Math.floor(Math.random() * 13 + 1);
+const card3 = Math.floor(Math.random() * 13 + 1);
+
+const highestCard = Math.max(card1, card2, card3);
 
 /**
  * ADDRESS LINE
@@ -28,6 +47,14 @@
 // this information to create a formatted address block
 // that could be printed onto an envelope.
 
+const firstName = `Max`;
+const lastName = `Power`;
+const streetAddress = `246 Ideal Street`;
+const city = `Milan`;
+const state = `MI`;
+const zip = 48160;
+
+let address = `${firstName} ${lastName}\n${streetAddress}\n${city}, ${state}  ${zip}`;
 
 // 2. You are given a string in this format:
 // firstName lastName(assume no spaces in either)
@@ -37,6 +64,8 @@
 // Write code that is able to extract the first name from this string into a variable.
 // Hint: use indexOf, slice, and / or substring
 
+let firstSpace = address.indexOf(' ');
+let filteredFirstName = address.slice(0, firstSpace);
 
 /**
  * FIND THE MIDDLE DATE
@@ -47,4 +76,6 @@
 // Look online for documentation on Date objects.
 
 // Starting hint:
-const endDate = new Date(2019, 3, 1);
+const startDate = new Date(2020, 1, 1)
+const endDate = new Date(2020, 4, 1);
+
