@@ -78,4 +78,4 @@ let filteredFirstName = address.slice(0, firstSpace);
 // Starting hint:
 const startDate = new Date(2020, 1, 1)
 const endDate = new Date(2020, 4, 1);
-
+const middleDate = new Date(startDate.getTime() + ((endDate.getTime() - startDate.getTime()) / 2)).toLocaleString()
