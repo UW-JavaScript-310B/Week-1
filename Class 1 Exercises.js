@@ -5,11 +5,23 @@
 // 1. Pagliacci charges $16.99 for a 13” pizza and $19.99 for a 17” pizza.
 // What is the area for each of these pizzas?
 // (radius would be the listed size - i.e. 13" - divided by 2)
+const pizzaThirteen = 13
+const pizzaSeventeen = 17
+const pizzaThirteenPrice = 16.99
+const pizzaSeventeenPrice = 19.99
+// Area for each pizza 
+let pizzaThirteenArea = Math.PI * (pizzaThirteen / 2)**2
+let pizzaSeventeenArea = Math.PI * (pizzaSeventeen / 2)**2
+// Cost per sqin for each pizza
+let costPerSqIn_pizzaThirteen = pizzaThirteenPrice / pizzaThirteenArea
+let costPerSqIn_pizzaSeventeen = pizzaSeventeenPrice / pizzaSeventeenArea
 
+document.getElementById("pizza13").textContent = `The area of pizza ${pizzaThirteen} inches is ${pizzaThirteenArea.toFixed(2)} square inch`
+document.getElementById("pizza17").textContent = `The area of pizza ${pizzaSeventeen} inches is ${pizzaSeventeenArea.toFixed(2)} square inch`
 
 // 2. What is the cost per square inch of each pizza?
-
-
+document.getElementById("pizza13CostPerSqIn").textContent = `The cost per square inch of pizza ${pizzaThirteen} inches is ${costPerSqIn_pizzaThirteen.toFixed(2)} dollars`
+document.getElementById("pizza17CostPerSqIn").textContent = `The cost per square inch of pizza ${pizzaSeventeen} inches is ${costPerSqIn_pizzaSeventeen.toFixed(2)} dollars`
 // 3. Using the Math object, put together a code snippet
 // that allows you to draw a random card with a value
 // between 1 and 13 (assume ace is 1, jack is 11…)
