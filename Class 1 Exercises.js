@@ -5,16 +5,16 @@
 // 1. Pagliacci charges $16.99 for a 13” pizza and $19.99 for a 17” pizza.
 // What is the area for each of these pizzas?
 // (radius would be the listed size - i.e. 13" - divided by 2)
-areaPizza13 = Math.PI * (13 / 2) ** 2;
-areaPizza17 = Math.PI * (17 / 2) ** 2;
+const areaPizza13 = Math.PI * (13 / 2) ** 2;
+const areaPizza17 = Math.PI * (17 / 2) ** 2;
 
 console.log ('Math Exercise 1:')
 console.log (`Area of 13in Pizza is ${areaPizza13.toFixed(2)} SQ.IN.`);
 console.log (`Area of 17in Pizza is ${areaPizza17.toFixed(2)} SQ.IN. \n`);
 
 // 2. What is the cost per square inch of each pizza?
-costPizza13 = 16.99 / areaPizza13;
-costPizza17 = 19.99 / areaPizza17;
+const costPizza13 = 16.99 / areaPizza13;
+const costPizza17 = 19.99 / areaPizza17;
 
 console.log ('Math Exercise 2:')
 console.log (`Cost per square inch of 13in Pizza is $${costPizza13.toFixed(2)}.`);
@@ -35,7 +35,7 @@ console.log(`You drew card number ${rndCard} from the deck. \n`)
 const rndCard1 = Math.floor(Math.random() * 13) + 1;
 const rndCard2 = Math.floor(Math.random() * 13) + 1;
 const rndCard3 = Math.floor(Math.random() * 13) + 1;
-highCard = Math.max(rndCard1,rndCard2,rndCard3)
+const highCard = Math.max(rndCard1,rndCard2,rndCard3)
 
 console.log ('Math Exercise 4:')
 console.log(`The three card numbers drawn were ${rndCard1}, ${rndCard2}, and ${rndCard3}.`)
@@ -73,9 +73,9 @@ console.log(line1Address.join(' ')+'\n'+line2Address+'\n'+line3Address.join(', '
 // Write code that is able to extract the first name from this string into a variable.
 // Hint: use indexOf, slice, and / or substring
 
-addressBlock = `Mickey Mouse\n123 Main St\nDisneyland, CA 92808`
+const addressBlock = `Mickey Mouse\n123 Main St\nDisneyland, CA 92808`
 
-grabFirstName = addressBlock.substring(0,6)
+const grabFirstName = addressBlock.substring(0,6)
 
 console.log ('String Address Exercise 2:');
 console.log(addressBlock)
