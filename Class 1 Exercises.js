@@ -29,15 +29,14 @@ if (carddraw == 1) {
  console.log('ace');  //if random number is 1 then print ace
 }
 else if (carddraw == 11) {
-	console.log('jack'); //if random number is 111 then print jack
+	console.log('jack'); //if random number is 11 then print jack
 }
 else
 	console.log(carddraw); //else print random number
 
 // 4. Draw 3 cards and use Math to determine the highest
 // card
-const min = 1; //lower limit random number
-const max = 13; //higher limit random number
+
 let cd1 = Math.floor(Math.random() * (max - min + 1) + min); //get first random number
 let cd2 = Math.floor(Math.random() * (max - min + 1) + min); //get second random number 
 let cd3 = Math.floor(Math.random() * (max - min + 1) + min); //get third random number
