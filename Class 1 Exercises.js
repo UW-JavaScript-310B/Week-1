@@ -67,7 +67,12 @@ function trueName (card) {
 function randomCard () {
     let card = randomCardNumber();
     result = trueName(card);
-    return `Your card is ${result}.`;
+    if (card === 1 || card >= 11) {
+        let result = String(trueName(card));
+        return `Your card is ${card} (${result}).`
+    } else {
+        return `Your card is ${card}.`;
+    }
 }
 
 randomCard(); // <-- generates answer
@@ -85,9 +90,9 @@ function rankCards (numCardsToDraw) {
     let strMaxNum = String(maxNum);
     if (maxNum === 1 || maxNum >= 11) {
         let result = String(trueName(maxNum));
-        return `The largest card drawn was ${result} from the list ${cardList}.`
+        return `The higest value card drawn was a ${strMaxNum} (${result}) from the list ${cardList}.`
     } else {
-        return `The largest card drawn was a ${strMaxNum} from the list ${cardList}.`;
+        return `The higest value card drawn was a ${strMaxNum} from the list ${cardList}.`;
     }
     
 }
@@ -149,7 +154,7 @@ ${city}, ${state}  ${zipCode}`); */
 // Look online for documentation on Date objects.
 
 function findDateMidpoint(firstDate, secondDate) {
-    const beginDate = new Date(firstDate); //works
+    const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
     let elapsedTimeFirst = beginDate.getTime();
     let elapsedTimeSecond = endDate.getTime();
@@ -161,5 +166,8 @@ function findDateMidpoint(firstDate, secondDate) {
     return midPointDate;
 }
 
+// Compared against Wolfram Alpha:
+// https://www.wolframalpha.com/input/?i=midpoint+between+1%2F1%2F2020+00%3A00%3A00+and+4%2F1%2F2020+00%3A00%3A00
+
 // Starting hint:
-const endDate = new Date(2019, 3, 1);
+// const endDate = new Date(2019, 3, 1);
