@@ -73,6 +73,6 @@ const filteredFirstName = address.slice(0, firstSpace);
 // Look online for documentation on Date objects.
 
 // Starting hint:
-const startDate = new Date(2020, 1, 1)
-const endDate = new Date(2020, 4, 1);
-const middleDate = new Date(startDate.getTime() + ((endDate.getTime() - startDate.getTime()) / 2)).toLocaleString()
+const startDate = new Date(2020, 0, 1)
+const endDate = new Date(2020, 3, 1);
+const middleDate = new Date(startDate.getTime() + ((endDate.getTime() - startDate.getTime()) / 2)).toLocaleString();
