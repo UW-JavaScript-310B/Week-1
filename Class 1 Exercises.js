@@ -1,5 +1,6 @@
 /**
- * MATH1
+ * MATH
+ *
  */
 
 /* 1. Pagliacci charges $16.99 for a 13” pizza and $19.99 for a 17” pizza.
