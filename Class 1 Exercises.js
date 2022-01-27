@@ -78,10 +78,16 @@ console.log (extractedFirstName);
 // Look online for documentation on Date objects.
 
 // Starting hint:
-const endDate = new Date(2020, 3, 1);
-const startDate = new Date (2020, 0, 1);
-const startDateMS = startDate.getTime();
-const timeDiffMs = ((endDate - startDate) / 2);
-const midDateMs = (startDateMS + timeDiffMs);
+const endDate = new Date(2020, 3, 1, 00, 00, 00);
+const localTimeEndDate = endDate.getTime();
+const localOffsetEnd = endDate.getTimezoneOffset ();
+const utcTimeEnd = localTimeEndDate + localOffsetEnd;
+const startDate = new Date (2020, 0, 1, 00, 00, 00);
+const localTimeStartdate = startDate.getTime();
+const localOffsetStart = startDate.getTimezoneOffset();
+const utcTimeStart = localTimeStartdate + localOffsetStart;
+const timeDiffMs = ((utcTimeEnd - utcTimeStart) / 2);
+const timeDiffOffset = (30 *60 * 1000)
+const midDateMs = (utcTimeStart + timeDiffMs + timeDiffOffset);
 const midDate = new Date (midDateMs);
 console.log(`Middle date and time between 1/1/2020 00:00:00 and 4/1/2020 00:00:00 is ${midDate}`);
