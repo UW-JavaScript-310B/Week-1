@@ -156,18 +156,12 @@ Doesn't account for DST */
 function findDateMidpoint(firstDate, secondDate) {
     const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
-    //sets var.s to dates
     let elapsedTimeFirst = beginDate.getTime();
     let elapsedTimeSecond = endDate.getTime(); 
-    //gets milliseconds from epoch to each
     let elapsedMilliSeconds = elapsedTimeSecond - elapsedTimeFirst;
-    //gets difference between start & end
     let midPointMilliSeconds = elapsedMilliSeconds / 2;
-    //gets milliseconds from start to mid-point
     let timeSinceEpoch = midPointMilliSeconds + elapsedTimeFirst;
-    //adds miliseconds from epoch to milliseconds from start to midpoint
     let midPointDate = new Date(timeSinceEpoch); 
-    //formats miliseconds to date
     return midPointDate;
 }
 findDateMidpoint('1/1/2020 00:00:00', '4/1/2020 00:00:00');
@@ -179,12 +173,10 @@ function findDateMidpoint(firstDate, secondDate) {
     let daylightAdjustment = 0;
     const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
-    //sets var.s to dates
     let elapsedTimeFirst = beginDate.getTime();
     let elapsedTimeSecond = endDate.getTime(); 
-    //gets milliseconds from epoch to each
     let elapsedMilliSeconds = elapsedTimeSecond - elapsedTimeFirst;
-    //gets difference between start & end
+    // using half an hour because midpoint calc splits DST hour into 2
     if (beginDate.getMonth() < 2 && endDate.getMonth() > 2) {
         let daylightAdjustment = 1800000;
     } else if (beginDate.getMonth() < 10 && endDate.getMonth() > 10) {
@@ -193,11 +185,8 @@ function findDateMidpoint(firstDate, secondDate) {
         let daylightAdjustment = 0;
     }
     let midPointMilliSeconds = (elapsedMilliSeconds / 2) + daylightAdjustment;
-    //gets milliseconds from start to mid-point
     let timeSinceEpoch = midPointMilliSeconds + elapsedTimeFirst;
-    //adds miliseconds from epoch to milliseconds from start to midpoint
     let midPointDate = new Date(timeSinceEpoch); 
-    //formats miliseconds to date
     return midPointDate;
 }
 findDateMidpoint('1/1/2020 00:00:00','4/1/2020 00:00:00');
@@ -208,10 +197,10 @@ function findDateMidpoint(firstDate, secondDate) {
     let daylightAdjustment = 0;
     const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
-    // sets strings to dates in variables
+    // 1000ms per sec.
     const offsetBeginDate = beginDate - (beginDate.getTimezoneOffset() / 1000);
     const offsetEndDate = endDate - (endDate.getTimezoneOffset() / 1000);
-    // apply offset. (1000ms per sec.)
+    // using half an hour because midpoint calc splits DST hour into 2
     if (beginDate.getMonth() < 2 && endDate.getMonth() > 2) {
         let daylightAdjustment = 1800000;
     } else if (beginDate.getMonth() < 10 && endDate.getMonth() > 10) {
@@ -220,7 +209,6 @@ function findDateMidpoint(firstDate, secondDate) {
         let daylightAdjustment = 0;
     }
     let midPointMilliSeconds = ((offsetEndDate - offsetBeginDate) + daylightAdjustment) / 2;
-    // gets midpoint between offset date via millisecond calc, adds half an hour
     let midPointDate = new Date(midPointMilliSeconds + offsetBeginDate); 
     let answer = midPointDate.toLocaleString();
     return answer;
