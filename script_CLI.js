@@ -1601,7 +1601,7 @@ THANK YOU
 						\u2022 March 13th - Nov 6th`)},23000)
 			setTimeout(()=>{console.log(`
 						let minDST = new Date(2020, 0 , 1, 0, 0, 0, 0).getTime()
-						let maxDST = new Date(2020, 3 , 1, 1, -23, 0, 0).getTime()
+						let maxDST = new Date(2020, 3 , 1, 1, 1, 0, 0).getTime()
 						let mid = (maxDST - minDST)/2
 						let midDate = min + mid
 						let DSTMid = new Date (midDate)
@@ -1613,7 +1613,8 @@ THANK YOU
 			
 		}
 		if(answers['options']==8){
-			console.log('here')
+			setTimeout(()=>{console.log(`Feature Unavailable`)},1000)
+			setTimeout(()=>{helloJS()},1500)
 		}
 		//Edge Case Control-1 if the value enter is greater than 8
 		if(parseInt(answers['options']) > 8){

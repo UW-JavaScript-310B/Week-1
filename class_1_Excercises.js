@@ -133,7 +133,7 @@ console.log(firstName)
 			let date1 = new Date(2020, 0, 1, 0,0,0,).getTime()
 			
 			// DST = +1
-			let date2 = new Date(2020, 3, 1, -23,0,0).getTime()
+			let date2 = new Date(2020, 3, 1, 1,0,0).getTime()
 			let mid = (date2 - date1)/2
 			let midDate = date1 + mid
 			let convertedMid = new Date (midDate)
