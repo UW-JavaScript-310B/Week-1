@@ -74,7 +74,7 @@ function randomCard () {
     }
 }
 
-randomCard(); // <-- generates answer
+randomCard(); // <-- generates answer (and face card name if any)
 
 // 4. Draw 3 cards and use Math to determine the highest
 // card
@@ -110,7 +110,7 @@ rankCards(3); // <-- generates answer
 const firstName = "James";
 const lastName = "Kirk";
 const streetAddress = "C.O. Starfleet Headquarters";
-const streetAddress2 = "1 Murray Circle";
+const streetAddress2 = "Murray Circle";
 const city = "Sausalito";
 const state = "CA";
 const zipCode = 94965;
@@ -138,11 +138,10 @@ function getFirstName (stringVar) {
     return extractName;
 }
 
-/* getFirstName(`${firstName} ${lastName}
+getFirstName(`${firstName} ${lastName}
 ${streetAddress}
 ${streetAddress2}
-${city}, ${state}  ${zipCode}`); */
-// Tested using this ^ function call and Capt. Kirk's details above
+${city}, ${state}  ${zipCode}`); 
 
 /**
  * FIND THE MIDDLE DATE
@@ -152,7 +151,8 @@ ${city}, ${state}  ${zipCode}`); */
 //
 // Look online for documentation on Date objects.
 
-//Version 1:
+/* Version 1: returns correct date but is half an hour early.
+Doesn't account for DST */
 function findDateMidpoint(firstDate, secondDate) {
     const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
@@ -168,19 +168,50 @@ function findDateMidpoint(firstDate, secondDate) {
     //adds miliseconds from epoch to milliseconds from start to midpoint
     let midPointDate = new Date(timeSinceEpoch); 
     //formats miliseconds to date
-
     return midPointDate;
 }
+findDateMidpoint('1/1/2020 00:00:00', '4/1/2020 00:00:00');
 
-//Version 2;
+/* Version 2: added if statement to try and account for DST and missing
+half hour, but doesn't somehow. Extracting if statement and running it
+independently produces "missing )" error despite the ('s all being closed. */
 function findDateMidpoint(firstDate, secondDate) {
-    let daylightAdjustment = 0
+    let daylightAdjustment = 0;
     const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
-    // sets strings to dates and stores in variable
+    //sets var.s to dates
+    let elapsedTimeFirst = beginDate.getTime();
+    let elapsedTimeSecond = endDate.getTime(); 
+    //gets milliseconds from epoch to each
+    let elapsedMilliSeconds = elapsedTimeSecond - elapsedTimeFirst;
+    //gets difference between start & end
+    if (beginDate.getMonth() < 2 && endDate.getMonth() > 2) {
+        let daylightAdjustment = 1800000;
+    } else if (beginDate.getMonth() < 10 && endDate.getMonth() > 10) {
+        let daylightAdjustment = -1800000;
+    } else {
+        let daylightAdjustment = 0;
+    }
+    let midPointMilliSeconds = (elapsedMilliSeconds / 2) + daylightAdjustment;
+    //gets milliseconds from start to mid-point
+    let timeSinceEpoch = midPointMilliSeconds + elapsedTimeFirst;
+    //adds miliseconds from epoch to milliseconds from start to midpoint
+    let midPointDate = new Date(timeSinceEpoch); 
+    //formats miliseconds to date
+    return midPointDate;
+}
+findDateMidpoint('1/1/2020 00:00:00','4/1/2020 00:00:00');
+
+/* Version 3: Tried to consolidate code and account for PST offset.
+Function returns correct date but 8 hours off Wolfram's answer. */
+function findDateMidpoint(firstDate, secondDate) {
+    let daylightAdjustment = 0;
+    const beginDate = new Date(firstDate); 
+    const endDate = new Date(secondDate);
+    // sets strings to dates in variables
     const offsetBeginDate = beginDate - (beginDate.getTimezoneOffset() / 1000);
     const offsetEndDate = endDate - (endDate.getTimezoneOffset() / 1000);
-    // apply offset. 1000ms per sec.
+    // apply offset. (1000ms per sec.)
     if (beginDate.getMonth() < 2 && endDate.getMonth() > 2) {
         let daylightAdjustment = 1800000;
     } else if (beginDate.getMonth() < 10 && endDate.getMonth() > 10) {
@@ -192,9 +223,9 @@ function findDateMidpoint(firstDate, secondDate) {
     // gets midpoint between offset date via millisecond calc, adds half an hour
     let midPointDate = new Date(midPointMilliSeconds + offsetBeginDate); 
     let answer = midPointDate.toLocaleString();
-        
     return answer;
 }
+findDateMidpoint('1/1/2020 00:00:00Z', '4/1/2020 00:00:00Z');
 
 // Compared against Wolfram Alpha:
 // https://www.wolframalpha.com/input/?i=midpoint+between+1%2F1%2F2020+00%3A00%3A00+and+4%2F1%2F2020+00%3A00%3A00
