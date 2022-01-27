@@ -15,7 +15,7 @@
 
 
 
-// const { Console } = require('console');
+const { Console } = require('console');
 //Terminal Viewing
 // console.log(`
 // Hello, Welcome`);
@@ -1473,7 +1473,7 @@ Now we're going to store it in a variable
 			
 			let firstName = this_string.substring(4,10)
 			
-			console.log( $ {firstName} ) #Remeber to actually unite the '$' with the {curly brackets} when printing in console
+			console.log(firstName) #Remeber to actually unite the '$' with the {curly brackets} when printing in console
 			Output: ${firstName}`)}, 8000)
 			
 			setTimeout(() => {console.log(`
@@ -1503,27 +1503,119 @@ THANK YOU
 			// DATE FORMAT JS: new Date(YYYY, MONTHPOSITION, Day, UTChr, UTCmin, UTCsec, UTCmillisec)
 			// ALWAYS take into account daylight savings
 			
-			// DST = 0
-			let date1 = new Date(2020, 0, 1, 0,0,0,).getTime()
+			// // DST = 0
+			// let date1 = new Date(2020, 0, 0, 1,0,0,).getTime()
 			
-			// DST = +1
-			let date2 = new Date(2020, 3, 1, 1,0,0).getTime()
-			let mid = (date2 - date1)/2
-			let midDate = new Date(date1 + mid )
-			let midOFF = midDate.getTimezoneOffset()
-			console.log(`
-				date1 : ${date1}
-				date2 : ${date2}
-				date2 - date1: ${mid}	
+			// // DST = +1
+			// let date2 = new Date(2020, 3, 1, 0,0,0).getTime()
+			// let mid = (date2 - date1)/2
+			// let midDate = date1 + mid
+			// let tstMid = new Date (midDate)
+			// // let midOFF = midDate.getTimezoneOffset()
+			
+			// console.log(`
+			// 	date1 : ${date1}
+			// 	date2 : ${date2}
+			// 	date2 - date1: ${mid}	
 				
-				midDate: ${midDate}
-
-				off: ${midOFF}
-				
-			`)
+			// 	midDate: ${midDate}
+			// 	tst mid = ${tstMid}
+			// `)
+			setTimeout(() =>{console.log(`
+			TIME EXPLAINED + ANSWER`)}, 500);
+			setTimeout(()=> {console.log(`
+				Think of this problem as a list of numbers, rather then points in time`)},1000);
+			setTimeout(()=> {console.log(`
+					What we know:`)},1500);
+			setTimeout(()=> {console.log(`
+						\u2022 There's 365 Days in a year 
+						\u2022 2020 was a leap year therefore there is 366
+						\u2022 Extra day is in Feb. 29`)},2000);
+			setTimeout(()=> {console.log(`
+						\u2022 Day 0: is Jan. 1st`)},2500);
+			setTimeout(()=> {console.log(`
+						\u2022 Day 91: is April 1st`)},3000);
+			setTimeout(()=> {console.log(`
+						
+					Next:`)},3500)
+			setTimeout(()=> {console.log(`
+						We need to find the value and date in between 0 and 91`)},4000)
+			setTimeout(()=> {console.log(`
+							max =  91
+							min = 0
+							midValue = (max - min)/2 
+							midDate = min + midValue
+							miDate = day 45.5 || 46 
+							midDate = dayInCalendar = Feb 15`
+							)},4500)
+			setTimeout(() => {console.log(`
+								Now we know the answer is Feb 15`)}, 5000);
+			setTimeout(() => {console.log(`
+										LETS CODE IT!`)}, 5500)
+			setTimeout(() => {console.log(`
+					// date constructor format: 
+						
+						Date(YYYY, MM(POSITION), DD, UTC-hr, UTC-min, UTC-sec, UTC-milliSec)
+					
+					// MM(POSSITION)= Jan(0), Dec(11)
+						`)}, 6000)
+			setTimeout(() => {console.log(`
+					//Lets create the needed variables`)}, 7000);
+			setTimeout(()=>{console.log(`
+						let min = new Date(2020, 0 , 1, 0, 0, 0, 0)`)}, 8000)
+			setTimeout(()=> {console.log(`
+						let max = new Date(2020, 3 , 1, 0, 0, 0, 0)`)},9000)
+			setTimeout(()=> {console.log(`
+						let mid = (max - min)/2`)},10000)
+			setTimeout(()=> {console.log(`
+						console.log(mid)`)},11000)
+			setTimeout(()=> {console.log(`
+							output: 3929400000 `)},13000)
+			setTimeout(()=> {console.log(`
+					// WHY?`)},13000)
+			setTimeout(()=> {console.log(`
+					// This the amount of milliseconds in between { max } and { min }`)},14000)
+			setTimeout(()=>{console.log(`
+					// since date is calculated from
+								0_milliSeconds = Jan,1,1970
+								
+					// We need to find how many milliseconds are from Jan 1, 1970 to Feb 15,2020`)},15000)
+			setTimeout(()=>{console.log(`
+						let midDate = min + mid`)},16000)
+			setTimeout(()=>{`
+						console.log(midDate)`},17000)
+			setTimeout(()=>{console.log(`
+						output: 1581796800000
+						`)},18000)
+			setTimeout(()=>{console.log(`
+					// Now we can do the conversion by using the getTime() method
+					`)}, 19000)
+			setTimeout(()=> {console.log(`
+						let midDate = new Date(mid).getTime()`)},20000)
+			setTimeout(() => {console.log(`
+						console.log(midDate)`)},21000)
+			setTimeout(()=> {console.log(`
+						output: Sat Feb 15 2020 11:30:00 GMT-0800 (Pacific Standard Time)`)},22000)
+			setTimeout(()=> {console.log(`
+					// Now that we have the proper date we need to account daylight savings time
+						\u2022 March 13th - Nov 6th`)},23000)
+			setTimeout(()=>{console.log(`
+						let minDST = new Date(2020, 0 , 1, 0, 0, 0, 0).getTime()
+						let maxDST = new Date(2020, 3 , 1, 1, -23, 0, 0).getTime()
+						let mid = (maxDST - minDST)/2
+						let midDate = min + mid
+						let DSTMid = new Date (midDate)
+						
+						console.log(DSTMid)`)},24000)
+			setTimeout(()=>{console.log(`
+							output:  Sat Feb 15 2020 00:00:00 GMT-0800 (Pacific Standard Time)
+				`)},25000)
+			
 		}
-		if(answers['options']==8)
-		//Edge Case Control-1 if the value enter is greater than 7
+		if(answers['options']==8){
+			console.log('here')
+		}
+		//Edge Case Control-1 if the value enter is greater than 8
 		if(parseInt(answers['options']) > 8){
 			console.log(`
 			Checking`)
