@@ -49,7 +49,6 @@ function randomCardNumber () {
 }
 
 function trueName (card) {
-    //because I'm a bored masochist...
     if (card == 1) {
         card = "Ace";
     } else if (card == 11) {
@@ -153,17 +152,48 @@ ${city}, ${state}  ${zipCode}`); */
 //
 // Look online for documentation on Date objects.
 
+//Version 1:
 function findDateMidpoint(firstDate, secondDate) {
     const beginDate = new Date(firstDate); 
     const endDate = new Date(secondDate);
+    //sets var.s to dates
     let elapsedTimeFirst = beginDate.getTime();
-    let elapsedTimeSecond = endDate.getTime();
+    let elapsedTimeSecond = endDate.getTime(); 
+    //gets milliseconds from epoch to each
     let elapsedMilliSeconds = elapsedTimeSecond - elapsedTimeFirst;
+    //gets difference between start & end
     let midPointMilliSeconds = elapsedMilliSeconds / 2;
+    //gets milliseconds from start to mid-point
     let timeSinceEpoch = midPointMilliSeconds + elapsedTimeFirst;
+    //adds miliseconds from epoch to milliseconds from start to midpoint
     let midPointDate = new Date(timeSinceEpoch); 
+    //formats miliseconds to date
 
     return midPointDate;
+}
+
+//Version 2;
+function findDateMidpoint(firstDate, secondDate) {
+    let daylightAdjustment = 0
+    const beginDate = new Date(firstDate); 
+    const endDate = new Date(secondDate);
+    // sets strings to dates and stores in variable
+    const offsetBeginDate = beginDate - (beginDate.getTimezoneOffset() / 1000);
+    const offsetEndDate = endDate - (endDate.getTimezoneOffset() / 1000);
+    // apply offset. 1000ms per sec.
+    if (beginDate.getMonth() < 2 && endDate.getMonth() > 2) {
+        let daylightAdjustment = 1800000;
+    } else if (beginDate.getMonth() < 10 && endDate.getMonth() > 10) {
+        let daylightAdjustment = -1800000;
+    } else {
+        let daylightAdjustment = 0;
+    }
+    let midPointMilliSeconds = ((offsetEndDate - offsetBeginDate) + daylightAdjustment) / 2;
+    // gets midpoint between offset date via millisecond calc, adds half an hour
+    let midPointDate = new Date(midPointMilliSeconds + offsetBeginDate); 
+    let answer = midPointDate.toLocaleString();
+        
+    return answer;
 }
 
 // Compared against Wolfram Alpha:
