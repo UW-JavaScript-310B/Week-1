@@ -7,8 +7,8 @@
 // (radius would be the listed size - i.e. 13" - divided by 2)
 let diameter13 = 13
 let diameter17 = 17
-let area13 = Math.pow(diameter13 / 2) * Math.PI
-let area17 = Math.pow(diameter17 / 2) * Math.PI
+let area13 = Math.pow(diameter13 / 2, 2) * Math.PI
+let area17 = Math.pow(diameter17 / 2, 2) * Math.PI
 console.log("Dia 13 inch = " + diameter13)
 console.log("Dia 17 inch = " + diameter17)
 console.log("Area 13 = " + area13)
