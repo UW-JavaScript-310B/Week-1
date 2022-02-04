@@ -1,4 +1,22 @@
-Yuhong Wang's answer to Week-1 Homework
+//=======My correction for wrong answers for my first try: Begin=================================================================
+// 1. Pagliacci charges $16.99 for a 13” pizza and $19.99 for a 17” pizza.
+// What is the area for each of these pizzas?
+// (radius would be the listed size - i.e. 13" - divided by 2)
+let areaFor17in = Math.PI * (17/2)**2 // areaFor16in = 226.98006922186255 square inches
+// 2. What is the cost per square inch of each pizza?
+let costPerUnitFor17in = 19.99 /areaFor17in //result is 0.08806940657181973
+/**
+ * FIND THE MIDDLE DATE
+ */
+// On your own find the middle date(and time) between the following two dates:
+// 1/1/2020 00:00:00 and 4/1/2020 00:00:00
+//
+// Look online for documentation on Date objects.
+const startDate = new Date("2020-01-01");
+const endDate = new Date("2020-04-01");
+var midpoint = new Date((startDate.getTime() + endDate.getTime()) / 2); // result is Sat Feb 15 2020 04:00:00 GMT-0800 (Pacific Standard Time)
+//=======My correction for wrong answers for my first try: End=================================================================
+//Yuhong Wang's answer to Week-1 Homework
 /**
  * MATH
  */
