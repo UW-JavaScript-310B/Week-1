@@ -43,7 +43,8 @@ let streetAddress = 'testApartment';
 let city = 'Seattle';
 let state = 'WA';
 let zipCode = 'testZIPCode';
-console.log('Q1. Answer -> '+firstname+' '+lastName+'\n'+streetAddress+'\n'+city+', '+state+','+zipCode);
+let finalOutput = firstname+' '+lastName+'\n'+streetAddress+'\n'+city+', '+state+','+zipCode;
+console.log('Q1. Answer -> '+finalOutput);
 
 // 2. You are given a string in this format:
 // firstName lastName(assume no spaces in either)
@@ -55,8 +56,7 @@ console.log('Q1. Answer -> '+firstname+' '+lastName+'\n'+streetAddress+'\n'+city
 let inputString = "firstName lastName"+
                   "streetAddress"+
                   "city,state,zipCode";
-let extractOuput = inputString.slice(0,10);
-//console.log(inputString);
+let extractOuput = finalOutput.slice(0,5);
 console.log('Q2. Answer -> '+extractOuput);
 
 /**
