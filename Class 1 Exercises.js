@@ -11,13 +11,13 @@ let Area2 = 3.14*radius2*radius2;
 console.log("Area of 17 inch pizza :"+Area2);
 
 // 2. What is the cost per square inch of each pizza?
-console.log("Cost per inch for 13 inch pizza: "+(Area1/16.99));
-console.log("Cost per inch for 17 inch pizza: "+(Area2/19.99));
+console.log("Cost per inch for 13 inch pizza: "+(16.99/Area1));
+console.log("Cost per inch for 17 inch pizza: "+(19.99/Area2));
 
 // 3. Using the Math object, put together a code snippet
 // that allows you to draw a random card with a value
 // between 1 and 13 (assume ace is 1, jack is 11…)
-console.log('Q3. Answer -> ' +Math.floor(Math.random()*12));
+console.log('Q3. Answer -> ' +Math.floor(Math.random()*13));
 
 // 4. Draw 3 cards and use Math to determine the highest
 // card
